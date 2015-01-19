@@ -27,6 +27,9 @@ include_recipe 'python'
 include_recipe 'supervisor'
 
 
+# Install package dependencies
+package 'libev4'
+
 # Create system user
 user "#{node[:rocketws][:user]}" do
     home    node[:rocketws][:home]
