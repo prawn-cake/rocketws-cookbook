@@ -7,8 +7,3 @@ default[:rocketws] = {
     :git_repository => "https://github.com/prawn-cake/RocketWS.git",
     :git_revision   => "develop"
 }
-
-include_attribute "supervisor"
-#default[:supervisor] = {
-#    :version    => "3.1.3",
-#}
