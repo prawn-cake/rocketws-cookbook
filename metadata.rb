@@ -1,5 +1,5 @@
 name             'rocketws'
-maintainer       'YOUR_COMPANY_NAME'
+maintainer       'Maksim Ekimovskii'
 maintainer_email 'ekimovsky.maksim@gmail.com'
 license          'MIT'
 description      'Installs/Configures rocketws'
