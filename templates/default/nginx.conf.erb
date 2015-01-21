@@ -38,6 +38,8 @@ server {
     listen      80;
     server_name <%= node.rocketws.nginx.server_names.join(' ') %>;
     charset utf-8;
+    access_log    /var/log/nginx/rocketws_access.log
+    error_log    /var/log/nginx/rocketws_error.log
 
     location / {
         proxy_pass http://localhost:<%= node.rocketws.app.ws_port %>/;
