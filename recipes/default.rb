@@ -80,5 +80,8 @@ supervisor_service "rocketws" do
     user        node[:rocketws][:user]
     autostart   false
     autorestart true
-    command     "#{virtualenv_path}/bin/python #{node[:rocketws][:home]}/manage.py runserver --settings=rocketws.settings.#{node[:rocketws][:environment]}"
+    command     "#{virtualenv_path}/bin/python #{node[:rocketws][:home]}/manage.py runserver \
+                    --ws-conn :#{node[:rocketws][:app][:ws_port]} \
+                    --ms-conn :#{node[:rocketws][:app][:ms_port]} \
+                    --settings=rocketws.settings.#{node[:rocketws][:environment]}"
 end
