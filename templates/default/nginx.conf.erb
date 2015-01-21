@@ -33,7 +33,7 @@ server {
     <% if node.rocketws.nginx.proxy_shell.enable -%>
     location /shell {
         proxy_pass http://localhost:<%= node.rocketws.app.ms_port %>/;
-        <% if node.rocketws.nginx.proxy_shell.allow_for.length -%>
+        <% if node.rocketws.nginx.proxy_shell.allow_for.length > 0 -%>
         <% node.rocketws.nginx.proxy_shell.allow_for.each do |address| %>
         allow <%= address %>;
         <% end %>
@@ -63,7 +63,7 @@ server {
     <% if node.rocketws.nginx.proxy_shell.enable -%>
     location /shell {
         proxy_pass http://localhost:<%= node.rocketws.app.ms_port %>/;
-        <% if node.rocketws.nginx.proxy_shell.allow_for.length -%>
+        <% if node.rocketws.nginx.proxy_shell.allow_for.length > 0 -%>
         <% node.rocketws.nginx.proxy_shell.allow_for.each do |address| %>
         allow <%= address %>;
         <% end %>
