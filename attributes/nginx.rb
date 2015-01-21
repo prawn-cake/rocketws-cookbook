@@ -3,6 +3,6 @@ default[:rocketws][:nginx] = {
         :on     => false,
         :dir    => "/etc/nginx/ssl"
     },
-    :server_names => ["rocketws1.yourdomain.com", "rocketws2.yourdomain.com"],
+    :server_names => [],
     :proxy_read_timeout => 604800
 }
