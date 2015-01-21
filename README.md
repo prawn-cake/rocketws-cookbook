@@ -43,11 +43,17 @@ RocketWS nginx configuration parameters:
 		    :dir    => "/etc/nginx/ssl"
 		},
 		:server_names => ["rocketws.yourdomain.com"],
-		:proxy_read_timeout => 604800
+		:proxy_read_timeout => 604800,
+		:proxy_shell	=> {
+			:enable		=> true,
+			:allow_for	=> []
+		}
 	}
 ```
 
 **NOTE**: To enable ssl turn on `rocketws.nginx.ssl.on` option and put `rocketws.crt` and `rocketws.key` files to `rocketws.nginx.ssl.dir` directory on a server.
+
+`proxy_shell` - enable shell proxying `/shell --> http://localhost:{ms_port}`, `allow_for` - list of trusted ip addresses or subnets.
 
 
 Deployment recommendations
@@ -69,6 +75,7 @@ Deployment recommendations
 * Use nginx for proxying websockets connections;
 * Use iptables (or ferm) for restrics port access in production;
 * Use MessagesSource connector only for internal clients (application backends);
+* Use shell proxying for dev puproses or use `allow_for` for trusted only addresses;
 
 
 License and Authors

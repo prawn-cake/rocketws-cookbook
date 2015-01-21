@@ -5,5 +5,8 @@ default[:rocketws][:nginx] = {
     },
     :server_names => [],
     :proxy_read_timeout => 604800,
-    :proxy_shell    => true
+    :proxy_shell    => {
+        :enable     => true,
+        :allow_for  => []
+    }
 }

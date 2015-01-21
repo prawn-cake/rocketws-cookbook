@@ -30,9 +30,15 @@ server {
         proxy_read_timeout <%= node.rocketws.nginx.proxy_read_timeout %>;
     }
 
-    <% if node.rocketws.nginx.proxy_shell -%>
+    <% if node.rocketws.nginx.proxy_shell.enable -%>
     location /shell {
         proxy_pass http://localhost:<%= node.rocketws.app.ms_port %>/;
+        <% if node.rocketws.nginx.proxy_shell.allow_for.length -%>
+        <% node.rocketws.nginx.proxy_shell.allow_for.each do |address| %>
+        allow <%= address %>;
+        <% end %>
+        deny all;
+        <% end -%>
     }
     <% end -%>
 }
@@ -54,9 +60,15 @@ server {
         proxy_read_timeout <%= node.rocketws.nginx.proxy_read_timeout %>;
         }
  
-    <% if node.rocketws.nginx.proxy_shell -%>
+    <% if node.rocketws.nginx.proxy_shell.enable -%>
     location /shell {
         proxy_pass http://localhost:<%= node.rocketws.app.ms_port %>/;
+        <% if node.rocketws.nginx.proxy_shell.allow_for.length -%>
+        <% node.rocketws.nginx.proxy_shell.allow_for.each do |address| %>
+        allow <%= address %>;
+        <% end %>
+        deny all;
+        <% end -%>
     }
     <% end -%>
 
