@@ -12,7 +12,7 @@ Requirements
 
 Attributes
 ----------
-RocketWS configuration parameters
+RocketWS configuration parameters:
 
 ```ruby
 	project = "rocketws"
@@ -34,10 +34,26 @@ RocketWS configuration parameters
 	}
 ```
 
+RocketWS nginx configuration parameters:
+
+```ruby
+	default[:rocketws][:nginx] = {
+		:ssl    => {
+		    :on     => false,
+		    :dir    => "/etc/nginx/ssl"
+		},
+		:server_names => ["rocketws.yourdomain.com"],
+		:proxy_read_timeout => 604800
+	}
+```
+
+**NOTE**: To enable to ssl turn on `rocketws.nginx.ssl.on` option and put `rocketws.crt` and `rocketws.key` files to `rocketws.nginx.ssl.dir` directory on a server.
+
 
 Deployment recommendations
 --------------------------
-Better to use separat role with following run_list:
+
+* Better to use separate role with following run_list:
 
 ```json
     "run_list": [
@@ -49,6 +65,10 @@ Better to use separat role with following run_list:
         "recipe[rocketws::nginx]"
     ]
 ```
+
+* Use nginx for proxying websockets connections;
+* Use iptables (or ferm) for restrics port access in production;
+* Use MessagesSource connector only for internal clients (application backends);
 
 
 License and Authors
