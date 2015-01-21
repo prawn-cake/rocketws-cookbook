@@ -47,7 +47,7 @@ RocketWS nginx configuration parameters:
 	}
 ```
 
-**NOTE**: To enable to ssl turn on `rocketws.nginx.ssl.on` option and put `rocketws.crt` and `rocketws.key` files to `rocketws.nginx.ssl.dir` directory on a server.
+**NOTE**: To enable ssl turn on `rocketws.nginx.ssl.on` option and put `rocketws.crt` and `rocketws.key` files to `rocketws.nginx.ssl.dir` directory on a server.
 
 
 Deployment recommendations
