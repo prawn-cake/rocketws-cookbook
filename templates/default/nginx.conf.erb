@@ -19,8 +19,8 @@ server {
     ssl_certificate_key     <%= node.rocketws.nginx.ssl.dir %>/<%= node.rocketws.project %>.key;
     server_name             <%= node.rocketws.nginx.server_names.join(' ') %>;
     charset utf-8;
-    access_log    /var/log/nginx/rocketws_access.log
-    error_log    /var/log/nginx/rocketws_error.log
+    access_log    /var/log/nginx/<%= node.rocketws.project %>_access.log;
+    error_log    /var/log/nginx/<%= node.rocketws.project %>_error.log;
 
     location / {
         proxy_pass http://localhost:<%= node.rocketws.app.ws_port %>/;
@@ -38,8 +38,8 @@ server {
     listen      80;
     server_name <%= node.rocketws.nginx.server_names.join(' ') %>;
     charset utf-8;
-    access_log    /var/log/nginx/rocketws_access.log
-    error_log    /var/log/nginx/rocketws_error.log
+    access_log    /var/log/nginx/<%= node.rocketws.project %>_access.log;
+    error_log    /var/log/nginx/<%= node.rocketws.project %>_error.log;
 
     location / {
         proxy_pass http://localhost:<%= node.rocketws.app.ws_port %>/;
