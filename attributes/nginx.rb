@@ -4,5 +4,6 @@ default[:rocketws][:nginx] = {
         :dir    => "/etc/nginx/ssl"
     },
     :server_names => [],
-    :proxy_read_timeout => 604800
+    :proxy_read_timeout => 604800,
+    :proxy_shell    => true
 }
