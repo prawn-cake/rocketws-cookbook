@@ -19,6 +19,15 @@ server {
     ssl_certificate_key     <%= node.rocketws.nginx.ssl.dir %>/<%= node.rocketws.project %>.key;
     server_name             <%= node.rocketws.nginx.server_names.join(' ') %>;
     charset utf-8;
+
+    location / {
+        proxy_pass http://localhost:<%= node.rocketws.app.ws_port %>/;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection $connection_upgrade;
+        proxy_read_timeout <%= node.rocketws.nginx.proxy_read_timeout %>;
+    }
+
 }
 
 <% else -%>
@@ -29,7 +38,7 @@ server {
     charset utf-8;
 
     location / {
-        proxy_pass http://localhost:<%= node.rocketws.app.ws_port %>;
+        proxy_pass http://localhost:<%= node.rocketws.app.ws_port %>/;
         proxy_http_version 1.1;
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection $connection_upgrade;
