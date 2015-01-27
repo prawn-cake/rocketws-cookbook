@@ -8,7 +8,7 @@ default[project] = {
     :group          => "#{project}",
     :logdir         => "/var/log/#{project}",
     :git_repository => "https://github.com/prawn-cake/RocketWS.git",
-    :git_revision   => "develop"
+    :git_revision   => "master"
 }
 
 default[project][:app] = {
