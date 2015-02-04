@@ -15,7 +15,7 @@ end
 directory "/etc/nginx/ssl" do
     owner	"root"
     group   "root"
-    mode	644
+    mode	'0644'
     action  :create
     not_if  { File.exist?("/etc/nginx/ssl") }
 end
