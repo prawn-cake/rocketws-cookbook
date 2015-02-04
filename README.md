@@ -53,6 +53,8 @@ RocketWS nginx configuration parameters:
 
 **NOTE**: To enable ssl turn on `rocketws.nginx.ssl.on` option and put `rocketws.crt` and `rocketws.key` files to `rocketws.nginx.ssl.dir` directory on a server.
 
+**NOTE:** If you use `https` with **self-signatured** certificate you must use `wss://` schema firstly and before connect you must first visit a regular html page with that certificate so you can accept it.
+
 `proxy_shell` - enable shell proxying `/shell --> http://localhost:{ms_port}`, `allow_for` - list of trusted ip addresses or subnets.
 
 
