@@ -12,6 +12,6 @@ default[project] = {
 }
 
 default[project][:app] = {
-    :ms_port    => 59999,
-    :ws_port    => 58000
+    :transport_port    => 59999,
+    :ws_port           => 58000
 }

@@ -29,8 +29,8 @@ RocketWS configuration parameters:
 	}
 
 	default[project][:app] = {
-		:ms_port    => 59999,
-		:ws_port    => 58000
+		:transport_port    => 59999,
+		:ws_port           => 58000
 	}
 ```
 
@@ -55,7 +55,7 @@ RocketWS nginx configuration parameters:
 
 **NOTE:** If you use `https` with **self-signatured** certificate you must use `wss://` schema firstly and before connect you must first visit a regular html page with that certificate so you can accept it.
 
-`proxy_shell` - enable shell proxying `/shell --> http://localhost:{ms_port}`, `allow_for` - list of trusted ip addresses or subnets.
+`proxy_shell` - enable shell proxying `/shell --> http://localhost:{transport_port}`, `allow_for` - list of trusted ip addresses or subnets.
 
 
 Deployment recommendations
